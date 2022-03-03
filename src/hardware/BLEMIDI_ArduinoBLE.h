@@ -129,7 +129,7 @@ public:
 
     void stopAdvertising()
     {
-        BLE.advertise();
+        BLE.stopAdvertise();
     }
 
 protected:
