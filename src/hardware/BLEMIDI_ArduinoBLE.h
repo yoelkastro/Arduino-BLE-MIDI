@@ -2,8 +2,8 @@
 
 #include <ArduinoBLE.h>
 
-BLEService midiService(SERVICE_UUID);
-BLEStringCharacteristic midiChar(CHARACTERISTIC_UUID,  // standard 16-bit characteristic UUID
+BLEService midiService(bleMidi::SERVICE_UUID);
+BLEStringCharacteristic midiChar(bleMidi::CHARACTERISTIC_UUID,  // standard 16-bit characteristic UUID
     BLERead | BLEWrite | BLENotify | BLEWriteWithoutResponse, 16); // remote clients will be able to get notifications if this characteristic changes
 
 #define BLE_POLLING
@@ -120,6 +120,16 @@ public:
     {
         // called from BLE-MIDI, to add it to a buffer here
         mRxBuffer.enqueue(value);
+    }
+
+    void startAdvertising()
+    {
+        BLE.advertise();
+    }
+
+    void stopAdvertising()
+    {
+        BLE.advertise();
     }
 
 protected:

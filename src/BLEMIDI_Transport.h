@@ -122,6 +122,16 @@ public:
         return mRxIndex;
     }
 
+    void startAdvertising()
+    {
+        mBleClass.startAdvertising();
+    }
+
+    void stopAdvertising()
+    {
+        mBleClass.stopAdvertising();
+    }
+
 protected:
     /*
      The first byte of all BLE packets must be a header byte. This is followed by timestamp bytes and MIDI messages.
